@@ -19,6 +19,7 @@ Live site: **https://shah20.github.io**
 ├── 404.html / 404.md             # Custom "page not found" page
 ├── assets/
 │   ├── photo.jpg                 # Profile photo (480×480, optimised)
+│   ├── og-image.jpg              # 1200×630 link-preview card
 │   └── Rushabh_Shah_Resume.pdf   # Resume linked from the site
 └── _config.yml                   # GitHub Pages / Jekyll config
 ```
