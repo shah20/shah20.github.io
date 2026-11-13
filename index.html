@@ -748,6 +748,10 @@
       gap: 20px
     }
 
+    .creds>* {
+      min-width: 0
+    }
+
     .panel {
       padding: 30px;
       background: var(--bg);
@@ -765,7 +769,7 @@
       gap: 12px
     }
 
-    .cert-list li {
+    .cert-list a {
       display: flex;
       align-items: center;
       gap: 14px;
@@ -774,7 +778,27 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       font-weight: 600;
-      font-size: .94rem
+      font-size: .94rem;
+      transition: border-color .15s ease, transform .15s ease
+    }
+
+    .cert-list a:hover {
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+      transform: translateY(-1px)
+    }
+
+    .verify {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 600;
+      white-space: nowrap
     }
 
     .cert-list small {
@@ -994,6 +1018,19 @@
     }
 
     @media (max-width: 420px) {
+      .cert-list a {
+        flex-wrap: wrap;
+        row-gap: 10px
+      }
+
+      .cert-list a>span:nth-child(2) {
+        flex: 1 1 calc(100% - 60px)
+      }
+
+      .verify {
+        margin-left: 54px
+      }
+
       .metrics {
         grid-template-columns: 1fr
       }
@@ -1430,13 +1467,18 @@
           <div class="panel">
             <h3>AWS Certifications</h3>
             <ul class="cert-list">
-              <li><span class="badge">AWS</span><span>Solutions Architect — Professional<small>Amazon Web
-                    Services</small></span></li>
-              <li><span class="badge">AWS</span><span>Solutions Architect — Associate<small>Amazon Web
-                    Services</small></span></li>
-              <li><span class="badge">AWS</span><span>Developer — Associate<small>Amazon Web Services</small></span>
-              </li>
-              <li><span class="badge">AWS</span><span>AI Practitioner<small>Amazon Web Services</small></span></li>
+              <li><a href="https://www.credly.com/badges/362a2793-4256-4f45-85bb-f7a44cf4a257" target="_blank"
+                  rel="noopener"><span class="badge">AWS</span><span>Solutions Architect — Professional<small>Amazon Web
+                      Services</small></span><span class="verify">Verify on Credly ↗</span></a></li>
+              <li><a href="https://www.credly.com/badges/d63897ed-1705-434e-b696-5d22fda5e5aa" target="_blank"
+                  rel="noopener"><span class="badge">AWS</span><span>Solutions Architect — Associate<small>Amazon Web
+                      Services</small></span><span class="verify">Verify on Credly ↗</span></a></li>
+              <li><a href="https://www.credly.com/badges/000bdd7f-3636-4bb0-a28f-68afa73f0c0f" target="_blank"
+                  rel="noopener"><span class="badge">AWS</span><span>Developer — Associate<small>Amazon Web
+                      Services</small></span><span class="verify">Verify on Credly ↗</span></a></li>
+              <li><a href="https://www.credly.com/badges/177bbbf0-d59f-4ed9-98f4-f5d65d5f7958" target="_blank"
+                  rel="noopener"><span class="badge">AWS</span><span>AI Practitioner<small>Amazon Web
+                      Services</small></span><span class="verify">Verify on Credly ↗</span></a></li>
             </ul>
           </div>
           <div class="panel edu">
