@@ -691,6 +691,29 @@
       margin: 0
     }
 
+    .beyond-head {
+      margin: 56px 0 20px;
+      padding-top: 48px;
+      border-top: 1px solid var(--line)
+    }
+
+    .beyond-head h3 {
+      font-size: 1.3rem;
+      margin-top: 12px
+    }
+
+    .beyond-head p {
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 620px
+    }
+
+    .beyond {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
     .now {
       display: inline-flex;
       align-items: center;
@@ -964,6 +987,10 @@
         gap: 18px
       }
 
+      .beyond {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
       .metrics {
         grid-template-columns: repeat(2, 1fr)
       }
@@ -1005,7 +1032,8 @@
 
       .cards,
       .skills,
-      .strengths {
+      .strengths,
+      .beyond {
         grid-template-columns: 1fr
       }
 
@@ -1087,8 +1115,8 @@
             <p class="hello">Hi, I'm Rushabh Shah —</p>
             <h1>I build cloud-native systems that <em>scale reliably.</em></h1>
             <p class="lead">Senior Software Engineer with 10+ years of experience designing distributed systems,
-              event-driven platforms on AWS, and full-stack applications — owning high-impact, business-critical
-              platforms from technical design to production.</p>
+              event-driven platforms on AWS, and full-stack applications — leading technical design across teams and
+              owning business-critical platforms from design to production.</p>
             <div class="actions">
               <a class="btn primary" href="#work">View selected work
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -1205,7 +1233,7 @@
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg></div>
               <h3>Technical leadership</h3>
-              <p>Design reviews, mentoring, and ownership of production reliability.</p>
+              <p>Lead design and code reviews across teams, mentor engineers, and own production reliability.</p>
             </div>
           </div>
         </div>
@@ -1383,6 +1411,52 @@
               </ul>
             </div>
           </article>
+        </div>
+
+        <div class="beyond-head">
+          <span class="label">Beyond the code</span>
+          <h3>Technical leadership as an engineer.</h3>
+          <p>Leading through technical direction, collaboration, and ownership — not just shipping features.</p>
+        </div>
+        <div class="beyond">
+          <div class="strength">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z" />
+              </svg></div>
+            <h3>Technical direction</h3>
+            <p>Led the architecture and delivery of the analytics pipeline migration and the platform-wide
+              internationalization initiative.</p>
+          </div>
+          <div class="strength">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg></div>
+            <h3>Cross-team influence</h3>
+            <p>Lead technical design discussions and code reviews across teams, driving architectural decisions for
+              scalable, maintainable systems.</p>
+          </div>
+          <div class="strength">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10 12 5 2 10l10 5 10-5z" />
+                <path d="M6 12v5c3 2 9 2 12 0v-5" />
+              </svg></div>
+            <h3>Mentorship</h3>
+            <p>Mentor engineers through design feedback and code reviews, and build tooling that helps other
+              developers move faster.</p>
+          </div>
+          <div class="strength">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <h3>Ownership</h3>
+            <p>Own P0 incident response and production reliability for business-critical platforms, from diagnosis to
+              recovery.</p>
+          </div>
         </div>
       </div>
     </section>
