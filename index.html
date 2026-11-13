@@ -1,1 +1,602 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Rushabh Shah — Senior Software Engineer building scalable cloud-native systems and full-stack applications.">
+  <title>Rushabh Shah | Senior Software Engineer</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121c31;
+      --text: #edf2ff;
+      --muted: #aab7cf;
+      --blue: #82adff;
+      --mint: #76e0c2;
+      --line: #26334c
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 15% 0%, #20365a 0, transparent 36rem), var(--bg);
+      color: var(--text);
+      font: 16px/1.7 Inter, system-ui, -apple-system, "Segoe UI", sans-serif
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    a:hover {
+      color: var(--mint)
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: auto
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #0b1020eF;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      z-index: 5
+    }
+
+    nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      font-weight: 850;
+      font-size: 1.15rem
+    }
+
+    .brand span,
+    .eyebrow {
+      color: var(--mint)
+    }
+
+    .links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .hero {
+      padding: 100px 0 76px
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .76rem;
+      font-weight: 800
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      line-height: 1.04;
+      letter-spacing: -.06em;
+      margin: 18px 0;
+      max-width: 850px
+    }
+
+    h1 span {
+      color: var(--blue)
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.18rem;
+      max-width: 760px
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      font-weight: 700;
+      font-size: .9rem
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #081226;
+      border-color: var(--blue)
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px;
+      margin-top: 48px
+    }
+
+    .stat,
+    .card,
+    .panel,
+    .job,
+    .skill {
+      background: #121c31d9;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 20px
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem
+    }
+
+    .stat span,
+    .muted {
+      color: var(--muted);
+      font-size: .88rem
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.04em;
+      line-height: 1.2;
+      margin: 8px 0 24px
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 650px
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin-top: 0
+    }
+
+    .focus {
+      display: grid;
+      gap: 10px
+    }
+
+    .focus div {
+      background: #182640;
+      padding: 14px;
+      border-radius: 11px;
+      color: var(--muted)
+    }
+
+    .focus b {
+      display: block;
+      color: var(--text)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .card {
+      transition: .2s
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #668cc9
+    }
+
+    .num {
+      font-size: .72rem;
+      letter-spacing: .13em;
+      color: var(--mint);
+      font-weight: 800
+    }
+
+    .card h3 {
+      margin: 8px 0;
+      font-size: 1.15rem
+    }
+
+    .card p,
+    .job p {
+      color: var(--muted);
+      margin: 0 0 14px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    .tag {
+      font-size: .75rem;
+      color: #c9d8f5;
+      background: #263c5d;
+      padding: 3px 9px;
+      border-radius: 30px
+    }
+
+    .jobs {
+      display: grid;
+      gap: 13px
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 20px
+    }
+
+    .date {
+      color: var(--mint);
+      font-size: .88rem;
+      font-weight: 700
+    }
+
+    .job h3 {
+      margin: 0
+    }
+
+    .job p {
+      margin: 6px 0 0
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px
+    }
+
+    .skill h3 {
+      font-size: 1rem;
+      margin: 0 0 7px
+    }
+
+    .skill p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    .cert {
+      padding: 15px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      font-weight: 650
+    }
+
+    .contact {
+      padding: 34px;
+      border: 1px solid #38547b;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #1a3152, #142d36)
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 650px
+    }
+
+    footer {
+      padding: 25px 0 35px;
+      color: var(--muted);
+      font-size: .85rem
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    @media(max-width:740px) {
+
+      .about,
+      .grid,
+      .skills,
+      .certs {
+        grid-template-columns: 1fr
+      }
+
+      .job {
+        grid-template-columns: 1fr;
+        gap: 4px
+      }
+
+      .links {
+        gap: 12px;
+        font-size: .8rem
+      }
+
+      .hero {
+        padding: 70px 0
+      }
+
+      .stats {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:470px) {
+      .wrap {
+        width: calc(100% - 28px)
+      }
+
+      nav {
+        height: auto;
+        padding: 15px 0;
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column
+      }
+
+      .links {
+        flex-wrap: wrap
+      }
+
+      .contact {
+        padding: 23px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="wrap"><a class="brand" href="#top">Rushabh Shah<span>.</span></a>
+      <div class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a
+          href="#skills">Skills</a><a href="#contact">Contact</a></div>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero" style="border:0">
+      <div class="wrap">
+        <div class="eyebrow">Senior Software Engineer · Bangalore, India</div>
+        <h1>Building reliable systems.<br><span>Solving meaningful problems.</span></h1>
+        <p class="lead">I'm Rushabh Shah, a Senior Software Engineer with 9+ years of experience building cloud-native
+          platforms, distributed systems, and full-stack applications. I work across architecture, backend and frontend
+          development, delivery pipelines, and production operations—with a focus on scalable solutions and practical
+          engineering outcomes.</p>
+        <div class="actions"><a class="btn primary" href="#work">Explore my work ↗</a><a class="btn"
+            href="mailto:shah20@ymail.com">Get in touch</a><a class="btn" href="Rushabh_Shah_Resume.pdf" target="_blank"
+            rel="noopener">View resume</a></div>
+        <div class="stats">
+          <div class="stat"><strong>9+ years</strong><span>Software engineering experience</span></div>
+          <div class="stat"><strong>60M+</strong><span>Events processed per day</span></div>
+          <div class="stat"><strong>50%</strong><span>Reduction in developer setup time</span></div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="wrap">
+        <div class="eyebrow">About</div>
+        <h2>Engineering from idea to production.</h2>
+        <div class="about">
+          <div class="panel">
+            <p>My experience spans the full software development lifecycle: understanding product requirements, shaping
+              technical designs, building APIs and user interfaces, creating cloud infrastructure, implementing
+              automated tests, deploying services, and supporting production systems.</p>
+            <p>At PowerSchool, I've worked on high-volume analytics pipelines, Student and Staff data integration,
+              reusable product architecture, and internal developer tools. I also contribute through technical design
+              discussions, code reviews, mentoring, and cross-team collaboration.</p>
+            <p>Earlier in my career, I built multi-tenant SaaS and health-insurance platforms, including workflow
+              capabilities, security features, enterprise authentication, dynamic forms, and reusable UI components. I'm
+              adaptable, curious, and comfortable learning technologies as project needs evolve.</p>
+          </div>
+          <div class="focus">
+            <div><b>Architecture & scale</b>Event-driven systems, serverless platforms, distributed processing</div>
+            <div><b>Full-stack engineering</b>Node.js, TypeScript, React, REST APIs</div>
+            <div><b>Cloud & delivery</b>AWS, infrastructure as code, CI/CD, Docker</div>
+            <div><b>Engineering leadership</b>Technical design, code reviews, mentoring, production ownership</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="work">
+      <div class="wrap">
+        <div class="eyebrow">Selected work</div>
+        <h2>Projects and impact.</h2>
+        <p class="intro">A selection of platforms and engineering initiatives I've contributed to throughout my career.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <div class="num">01 / CLOUD & DISTRIBUTED SYSTEMS</div>
+            <h3>Usage Analytics Platform</h3>
+            <p>Led the migration of a manually managed analytics pipeline to AWS Kinesis Streams and Firehose, building
+              a resilient serverless platform processing more than 60 million events per day.</p>
+            <div class="tags"><span class="tag">AWS Kinesis</span><span class="tag">Firehose</span><span
+                class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">CDK</span></div>
+          </article>
+          <article class="card">
+            <div class="num">02 / DATA INTEGRATION</div>
+            <h3>Student & Staff Data Integration</h3>
+            <p>Designed a cloud-native ETL platform to ingest Student and Staff data from SIS platforms, orchestrating
+              asynchronous workflows for enterprise data integration.</p>
+            <div class="tags"><span class="tag">Lambda</span><span class="tag">Step Functions</span><span
+                class="tag">EventBridge</span><span class="tag">S3</span><span class="tag">ETL</span></div>
+          </article>
+          <article class="card">
+            <div class="num">03 / FULL-STACK PRODUCT ENGINEERING</div>
+            <h3>Core Product & Full-Stack Platform</h3>
+            <p>Built and maintained applications and REST APIs using Node.js, TypeScript, React, and AWS. Contributed to
+              reusable micro-frontends, automated Jest testing, CI/CD, and production support.</p>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">REST
+                APIs</span><span class="tag">Jest</span><span class="tag">CI/CD</span></div>
+          </article>
+          <article class="card">
+            <div class="num">04 / DEVELOPER PRODUCTIVITY</div>
+            <h3>Developer & Operational Tools</h3>
+            <p>Created a VS Code/Cursor extension that reduced containerized test environment setup time by 50%, and an
+              MCP-powered assistant that brings on-call runbooks and troubleshooting workflows into the developer
+              environment.</p>
+            <div class="tags"><span class="tag">VS Code</span><span class="tag">Cursor</span><span
+                class="tag">MCP</span><span class="tag">Docker</span></div>
+          </article>
+          <article class="card">
+            <div class="num">05 / ENTERPRISE SAAS & SECURITY</div>
+            <h3>Multi-Tenant Business Process Platform</h3>
+            <p>Built SaaS capabilities for quality checks, SLA management, BPMN-based workflows, notifications, and
+              queue orchestration, alongside Node.js security features and SAML-based enterprise authentication.</p>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span
+                class="tag">MongoDB</span><span class="tag">BPMN</span><span class="tag">SAML SSO</span></div>
+          </article>
+          <article class="card">
+            <div class="num">06 / PLATFORM FRAMEWORKS</div>
+            <h3>Multi-Tenant Health Insurance Platform</h3>
+            <p>Developed a JSON-driven dynamic form engine, an administrative portal for application and user
+              management, role-based access control, and reusable micro-UI components.</p>
+            <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span
+                class="tag">MongoDB</span><span class="tag">RBAC</span><span class="tag">Micro-UI</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <div class="wrap">
+        <div class="eyebrow">Career</div>
+        <h2>Professional experience.</h2>
+        <div class="jobs">
+          <article class="job">
+            <div class="date">Nov 2021 — Present</div>
+            <div>
+              <h3>Senior Software Engineer II</h3>
+              <div class="muted">PowerSchool · Bangalore, India</div>
+              <p>Cloud-native analytics and ETL platforms, full-stack product engineering, developer productivity
+                tooling, technical design, mentoring, and production reliability.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="date">Jul 2019 — Nov 2021</div>
+            <div>
+              <h3>Senior Software Engineer</h3>
+              <div class="muted">Wipro · Pune, India</div>
+              <p>Multi-tenant SaaS and business-process platform development, Node.js security, BPMN workflows,
+                SAML-based SSO, PWA capabilities, and operational tooling.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="date">Dec 2016 — Jun 2019</div>
+            <div>
+              <h3>Specialist Programmer</h3>
+              <div class="muted">Infosys · Pune, India</div>
+              <p>Multi-tenant health-insurance platform, dynamic form generation, application administration, RBAC, and
+                reusable micro-UI components.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="wrap">
+        <div class="eyebrow">Technical toolkit</div>
+        <h2>Skills & technologies.</h2>
+        <div class="skills">
+          <div class="skill">
+            <h3>Languages & backend</h3>
+            <p>TypeScript, JavaScript, Node.js, Express.js, SQL, REST APIs</p>
+          </div>
+          <div class="skill">
+            <h3>Cloud & architecture</h3>
+            <p>AWS, Kinesis, Firehose, Lambda, Step Functions, EventBridge, S3, CloudWatch, serverless, microservices,
+              distributed systems</p>
+          </div>
+          <div class="skill">
+            <h3>Frontend</h3>
+            <p>React, Angular, micro-frontends, Progressive Web Apps, internationalization, RTL</p>
+          </div>
+          <div class="skill">
+            <h3>Databases</h3>
+            <p>DynamoDB, MongoDB, MySQL; PostgreSQL — prior experience</p>
+          </div>
+          <div class="skill">
+            <h3>Testing & delivery</h3>
+            <p>Jest, unit and integration testing, CI/CD, Docker, infrastructure as code, AWS CDK, CloudFormation</p>
+          </div>
+          <div class="skill">
+            <h3>Operations & leadership</h3>
+            <p>CloudWatch, Datadog, New Relic, observability, P0 incident response, technical design, code reviews,
+              mentoring</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="certifications">
+      <div class="wrap">
+        <div class="eyebrow">Credentials</div>
+        <h2>Certifications.</h2>
+        <div class="certs">
+          <div class="cert">AWS Certified Solutions Architect — Professional</div>
+          <div class="cert">AWS Certified Solutions Architect — Associate</div>
+          <div class="cert">AWS Certified Developer — Associate</div>
+          <div class="cert">AWS Certified AI Practitioner</div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="eyebrow">Let's connect</div>
+          <h2>Have an interesting engineering challenge?</h2>
+          <p>I'm interested in connecting with engineering teams, discussing system design and cloud architecture, and
+            exploring opportunities to build useful, reliable software.</p>
+          <div class="actions"><a class="btn primary" href="mailto:shah20@ymail.com">Email me</a><a class="btn"
+              href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn"
+              href="https://github.com/shah20" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap foot"><span>© 2026 Rushabh Shah</span>
+      <!-- <span>Built with HTML & CSS · Hosted on GitHub Pages</span> -->
+    </div>
+  </footer>
+</body>
+
+</html>
