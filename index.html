@@ -5,32 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Rushabh Shah — Senior Software Engineer building scalable cloud-native systems and full-stack applications.">
+    content="Rushabh Shah — Senior Software Engineer with 10+ years of experience building cloud-native, distributed systems and full-stack applications on AWS.">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Rushabh Shah | Senior Software Engineer">
+  <meta property="og:description"
+    content="Cloud-native platforms, distributed systems, and full-stack engineering. 10+ years of building reliable software.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shah20.github.io/assets/photo.jpg">
   <title>Rushabh Shah | Senior Software Engineer</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232346c8'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='26' fill='white'%3ERS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: #121c31;
-      --text: #edf2ff;
-      --muted: #aab7cf;
-      --blue: #82adff;
-      --mint: #76e0c2;
-      --line: #26334c
+      color-scheme: light dark;
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --surface-2: #f0eee8;
+      --text: #121722;
+      --muted: #545d6e;
+      --faint: #858c99;
+      --line: #e3e0d8;
+      --accent: #2346c8;
+      --accent-ink: #ffffff;
+      --accent-soft: #e9eefc;
+      --header: rgba(246, 245, 241, .82);
+      --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 10px 30px rgba(16, 24, 40, .06);
+      --radius: 16px;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    * {
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1116;
+        --surface: #151a22;
+        --surface-2: #1b212b;
+        --text: #e9edf3;
+        --muted: #a3acba;
+        --faint: #78839a;
+        --line: #262d39;
+        --accent: #86a2ff;
+        --accent-ink: #0b1020;
+        --accent-soft: #1b2442;
+        --header: rgba(14, 17, 22, .82);
+        --shadow: none;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px
     }
 
     body {
       margin: 0;
-      background: radial-gradient(ellipse at 15% 0%, #20365a 0, transparent 36rem), var(--bg);
+      background: var(--bg);
       color: var(--text);
-      font: 16px/1.7 Inter, system-ui, -apple-system, "Segoe UI", sans-serif
+      font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility
     }
 
     a {
@@ -38,206 +81,502 @@
       text-decoration: none
     }
 
-    a:hover {
-      color: var(--mint)
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: -.025em
+    }
+
+    p {
+      margin: 0
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    svg {
+      flex-shrink: 0
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 6px
     }
 
     .wrap {
-      width: min(1080px, calc(100% - 40px));
-      margin: auto
+      width: min(1120px, calc(100% - 48px));
+      margin-inline: auto
     }
 
+    /* Header */
     header {
       position: sticky;
       top: 0;
-      background: #0b1020eF;
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-      z-index: 5
+      z-index: 10;
+      background: var(--header);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--line)
     }
 
     nav {
-      height: 68px;
+      height: 64px;
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: space-between;
+      gap: 20px
     }
 
     .brand {
-      font-weight: 850;
-      font-size: 1.15rem
-    }
-
-    .brand span,
-    .eyebrow {
-      color: var(--mint)
-    }
-
-    .links {
       display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: .9rem
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: -.01em
     }
 
-    .hero {
-      padding: 100px 0 76px
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: .76rem;
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-size: .78rem;
       font-weight: 800
     }
 
-    h1 {
-      font-size: clamp(2.8rem, 7vw, 5.3rem);
-      line-height: 1.04;
-      letter-spacing: -.06em;
-      margin: 18px 0;
-      max-width: 850px
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 500
     }
 
-    h1 span {
-      color: var(--blue)
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      font-size: .9rem;
+      font-weight: 600;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--faint)
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.08)
+    }
+
+    .btn.small {
+      padding: 7px 13px;
+      font-size: .82rem
+    }
+
+    /* Section scaffolding */
+    section {
+      padding: 96px 0
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 500 .75rem/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--accent)
+    }
+
+    .label::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 44px
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      margin-top: 14px
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 470px;
+      justify-self: end
+    }
+
+    .alt {
+      background: var(--surface);
+      border-block: 1px solid var(--line)
+    }
+
+    /* Hero */
+    .hero {
+      padding: 88px 0 72px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 56px;
+      align-items: center
+    }
+
+    .hello {
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 20px
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.6vw, 4.2rem);
+      letter-spacing: -.045em;
+      line-height: 1.04;
+      margin: 10px 0 22px
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent)
     }
 
     .lead {
+      font-size: 1.12rem;
       color: var(--muted);
-      font-size: 1.18rem;
-      max-width: 760px
+      max-width: 620px
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px
+      margin-top: 32px
     }
 
-    .btn {
-      display: inline-block;
-      padding: 11px 17px;
+    .socials {
+      display: flex;
+      gap: 18px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 500
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .socials a:hover {
+      color: var(--accent)
+    }
+
+    .profile {
+      background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--panel);
-      font-weight: 700;
-      font-size: .9rem
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden
     }
 
-    .btn.primary {
-      background: var(--blue);
-      color: #081226;
-      border-color: var(--blue)
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      border-bottom: 1px solid var(--line)
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 760px;
-      margin-top: 48px
-    }
-
-    .stat,
-    .card,
-    .panel,
-    .job,
-    .skill {
-      background: #121c31d9;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      padding: 20px
-    }
-
-    .stat strong {
+    .avatar {
       display: block;
-      font-size: 1.6rem
+      width: 84px;
+      height: 84px;
+      border-radius: 20px;
+      object-fit: cover;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      box-shadow: 0 0 0 4px var(--accent-soft)
     }
 
-    .stat span,
-    .muted {
+    .profile-top strong {
+      display: block;
+      font-size: 1.05rem
+    }
+
+    .profile-top span {
       color: var(--muted);
       font-size: .88rem
     }
 
-    section {
-      padding: 70px 0;
-      border-top: 1px solid var(--line)
+    .facts {
+      padding: 8px 24px 12px
     }
 
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    .facts li {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: .9rem
+    }
+
+    .facts li:last-child {
+      border-bottom: 0
+    }
+
+    .facts dt,
+    .facts .k {
+      color: var(--faint);
+      font: 500 .72rem/1.9 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .facts .v {
+      font-weight: 500
+    }
+
+    .facts .more {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 600;
+      white-space: nowrap
+    }
+
+    .facts .more:hover {
+      text-decoration: underline
+    }
+
+    /* Metrics */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 72px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden
+    }
+
+    .metric {
+      padding: 26px 26px 24px;
+      border-right: 1px solid var(--line)
+    }
+
+    .metric:last-child {
+      border-right: 0
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      font-weight: 800;
       letter-spacing: -.04em;
-      line-height: 1.2;
-      margin: 8px 0 24px
+      line-height: 1.1
     }
 
-    .intro {
+    .metric span {
       color: var(--muted);
-      max-width: 650px
+      font-size: .88rem
     }
 
-    .about {
+    /* About */
+    .about-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px
     }
 
-    .panel p {
+    .about-copy p {
       color: var(--muted);
-      margin-top: 0
+      font-size: 1.04rem;
+      margin-bottom: 18px
     }
 
-    .focus {
+    .about-copy p:first-child {
+      color: var(--text);
+      font-size: 1.2rem;
+      line-height: 1.55;
+      font-weight: 500;
+      letter-spacing: -.01em
+    }
+
+    .strengths {
       display: grid;
-      gap: 10px
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
     }
 
-    .focus div {
-      background: #182640;
-      padding: 14px;
-      border-radius: 11px;
+    .strength {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--bg)
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 14px
+    }
+
+    .strength h3 {
+      font-size: .98rem;
+      margin-bottom: 6px
+    }
+
+    .strength p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.55
+    }
+
+    /* Work */
+    .featured {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 20px
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow)
+    }
+
+    .case-body {
+      padding: 34px
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font: 500 .72rem/1.6 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--faint)
+    }
+
+    .meta b {
+      color: var(--accent);
+      font-weight: 500
+    }
+
+    .case h3 {
+      font-size: 1.55rem;
+      margin: 12px 0 12px
+    }
+
+    .case-body>p {
       color: var(--muted)
     }
 
-    .focus b {
-      display: block;
-      color: var(--text)
-    }
-
-    .grid {
+    .points {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px
+      gap: 10px;
+      margin: 20px 0 24px
     }
 
-    .card {
-      transition: .2s
+    .points li {
+      position: relative;
+      padding-left: 22px;
+      font-size: .94rem;
+      color: var(--muted)
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: #668cc9
+    .points li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: .75
     }
 
-    .num {
-      font-size: .72rem;
-      letter-spacing: .13em;
-      color: var(--mint);
-      font-weight: 800
+    .case-impact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 34px;
+      background: var(--accent-soft);
+      border-left: 1px solid var(--line)
     }
 
-    .card h3 {
-      margin: 8px 0;
-      font-size: 1.15rem
+    .case-impact .k {
+      font: 500 .72rem/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent)
     }
 
-    .card p,
-    .job p {
+    .case-impact strong {
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: 1
+    }
+
+    .case-impact p {
       color: var(--muted);
-      margin: 0 0 14px
+      font-size: .94rem;
+      max-width: 260px
     }
 
     .tags {
@@ -247,141 +586,435 @@
     }
 
     .tag {
-      font-size: .75rem;
-      color: #c9d8f5;
-      background: #263c5d;
-      padding: 3px 9px;
-      border-radius: 30px
+      font-size: .76rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      padding: 3px 10px;
+      border-radius: 999px
     }
 
-    .jobs {
+    .cards {
       display: grid;
-      gap: 13px
-    }
-
-    .job {
-      display: grid;
-      grid-template-columns: 210px 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px
     }
 
-    .date {
-      color: var(--mint);
-      font-size: .88rem;
-      font-weight: 700
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease
     }
 
-    .job h3 {
+    .card:hover,
+    .case:hover {
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--line))
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow)
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      margin: 12px 0 10px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 20px;
+      flex: 1
+    }
+
+    /* Experience */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 20px
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
+      padding: 32px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius)
+    }
+
+    .role-side .company {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -.03em
+    }
+
+    .role-side .when {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font: 500 .74rem/1.4 var(--mono)
+    }
+
+    .role-side .where {
+      display: block;
+      margin-top: 10px;
+      color: var(--faint);
+      font-size: .86rem
+    }
+
+    .role-main h3 {
+      font-size: 1.15rem
+    }
+
+    .role-main .summary {
+      color: var(--muted);
+      margin: 8px 0 16px
+    }
+
+    .role-main .points {
       margin: 0
     }
 
-    .job p {
-      margin: 6px 0 0
+    .now {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 10px;
+      font: 500 .68rem/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #15803d;
+      vertical-align: middle
     }
 
+    .now::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, .18)
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .now {
+        color: #4ade80
+      }
+    }
+
+    /* Skills */
     .skills {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 13px
+      gap: 20px
+    }
+
+    .skill {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius)
     }
 
     .skill h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1rem;
-      margin: 0 0 7px
+      margin-bottom: 16px
     }
 
-    .skill p {
+    .skill h3 .icon {
       margin: 0;
-      color: var(--muted);
-      font-size: .9rem
+      width: 32px;
+      height: 32px
     }
 
-    .certs {
+    /* Credentials */
+    .creds {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px
+    }
+
+    .panel {
+      padding: 30px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius)
+    }
+
+    .panel>h3 {
+      font-size: 1.05rem;
+      margin-bottom: 18px
+    }
+
+    .cert-list {
+      display: grid;
       gap: 12px
     }
 
-    .cert {
-      padding: 15px 18px;
-      background: var(--panel);
+    .cert-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 11px;
-      font-weight: 650
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: .94rem
     }
 
+    .cert-list small {
+      display: block;
+      color: var(--faint);
+      font-weight: 500;
+      font-size: .8rem
+    }
+
+    .badge {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #232f3e;
+      color: #ff9900;
+      font: 800 .7rem/1 Inter, sans-serif;
+      letter-spacing: .02em
+    }
+
+    .edu strong {
+      display: block;
+      font-size: 1.12rem;
+      letter-spacing: -.01em
+    }
+
+    .edu p {
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .edu .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px
+    }
+
+    /* Contact */
     .contact {
-      padding: 34px;
-      border: 1px solid #38547b;
-      border-radius: 18px;
-      background: linear-gradient(120deg, #1a3152, #142d36)
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 56px;
+      border-radius: 24px;
+      background: #111a33;
+      color: #eef2ff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .contact::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -160px auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 156, 255, .35), transparent 65%);
+      pointer-events: none
+    }
+
+    .contact .label {
+      color: #9fb4ff
+    }
+
+    .contact h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      margin: 14px 0 14px
     }
 
     .contact p {
-      color: var(--muted);
-      max-width: 650px
+      color: #b7c2dc;
+      max-width: 520px
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 1
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      font-weight: 600;
+      transition: background .15s ease, transform .15s ease
+    }
+
+    .contact-links a:hover {
+      background: rgba(255, 255, 255, .11);
+      transform: translateX(3px)
+    }
+
+    .contact-links span {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .contact-links small {
+      color: #9aa7c4;
+      font-weight: 500
     }
 
     footer {
-      padding: 25px 0 35px;
-      color: var(--muted);
-      font-size: .85rem
+      padding: 32px 0 44px;
+      color: var(--faint);
+      font-size: .86rem
     }
 
     .foot {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap
+      flex-wrap: wrap;
+      gap: 12px
     }
 
-    @media(max-width:740px) {
+    .foot a:hover {
+      color: var(--accent)
+    }
 
-      .about,
-      .grid,
-      .skills,
-      .certs {
+    /* Responsive */
+    @media (max-width: 960px) {
+
+      .hero-grid,
+      .about-grid,
+      .case,
+      .creds,
+      .contact {
         grid-template-columns: 1fr
       }
 
-      .job {
-        grid-template-columns: 1fr;
-        gap: 4px
+      .hero-grid {
+        gap: 40px
       }
 
-      .links {
-        gap: 12px;
-        font-size: .8rem
+      .case-impact {
+        border-left: 0;
+        border-top: 1px solid var(--line)
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .role {
+        grid-template-columns: 1fr;
+        gap: 18px
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .metric:nth-child(2) {
+        border-right: 0
+      }
+
+      .metric:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line)
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: calc(100% - 32px)
+      }
+
+      section {
+        padding: 72px 0
       }
 
       .hero {
-        padding: 70px 0
+        padding: 56px 0
       }
 
-      .stats {
+      .nav-links a:not(.btn) {
+        display: none
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 14px
+      }
+
+      .section-head p {
+        justify-self: start
+      }
+
+      .cards,
+      .skills,
+      .strengths {
         grid-template-columns: 1fr
       }
-    }
 
-    @media(max-width:470px) {
-      .wrap {
-        width: calc(100% - 28px)
-      }
-
-      nav {
-        height: auto;
-        padding: 15px 0;
-        align-items: flex-start;
-        gap: 10px;
-        flex-direction: column
-      }
-
-      .links {
-        flex-wrap: wrap
+      .case-body,
+      .case-impact,
+      .card,
+      .role,
+      .panel {
+        padding: 24px
       }
 
       .contact {
-        padding: 23px
+        padding: 32px 24px
+      }
+    }
+
+    @media (max-width: 420px) {
+      .metrics {
+        grid-template-columns: 1fr
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line)
+      }
+
+      .metric:last-child {
+        border-bottom: 0
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      * {
+        transition: none !important
       }
     }
   </style>
@@ -389,107 +1022,244 @@
 
 <body>
   <header>
-    <nav class="wrap"><a class="brand" href="#top">Rushabh Shah<span>.</span></a>
-      <div class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a
-          href="#skills">Skills</a><a href="#contact">Contact</a></div>
+    <nav class="wrap" aria-label="Primary">
+      <a class="brand" href="#top"><span class="mark">RS</span>Rushabh Shah</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn small" href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
     </nav>
   </header>
+
   <main id="top">
-    <section class="hero" style="border:0">
+    <!-- Hero -->
+    <section class="hero">
       <div class="wrap">
-        <div class="eyebrow">Senior Software Engineer · Bangalore, India</div>
-        <h1>Building reliable systems.<br><span>Solving meaningful problems.</span></h1>
-        <p class="lead">I'm Rushabh Shah, a Senior Software Engineer with 10+ years of experience building cloud-native
-          platforms, distributed systems, and full-stack applications. I work across architecture, backend and frontend
-          development, delivery pipelines, and production operations—with a focus on scalable solutions and practical
-          engineering outcomes.</p>
-        <div class="actions"><a class="btn primary" href="#work">Explore my work ↗</a><a class="btn"
-            href="mailto:shah20@ymail.com">Get in touch</a><a class="btn" href="Rushabh_Shah_Resume.pdf" target="_blank"
-            rel="noopener">View resume</a></div>
-        <div class="stats">
-          <div class="stat"><strong>10+ years</strong><span>Software engineering experience</span></div>
-          <div class="stat"><strong>60M+</strong><span>Events processed per day</span></div>
-          <div class="stat"><strong>50%</strong><span>Reduction in developer setup time</span></div>
+        <div class="hero-grid">
+          <div>
+            <span class="label">Senior Software Engineer</span>
+            <p class="hello">Hi, I'm Rushabh Shah —</p>
+            <h1>I build cloud-native systems that <em>scale reliably.</em></h1>
+            <p class="lead">Senior Software Engineer with 10+ years of experience designing distributed systems,
+              event-driven platforms on AWS, and full-stack applications — owning high-impact, business-critical
+              platforms from technical design to production.</p>
+            <div class="actions">
+              <a class="btn primary" href="#work">View selected work
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+              <a class="btn" href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+                </svg>Download resume</a>
+            </div>
+            <div class="socials">
+              <a href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                </svg>LinkedIn</a>
+              <a href="https://github.com/shah20" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3" />
+                </svg>GitHub</a>
+              <a href="mailto:shah20@ymail.com">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>shah20@ymail.com</a>
+            </div>
+          </div>
+
+          <aside class="profile" aria-label="Profile summary">
+            <div class="profile-top">
+              <img class="avatar" src="assets/photo.jpg" alt="Portrait of Rushabh Shah" width="84" height="84">
+              <div>
+                <strong>Rushabh Shah</strong>
+                <span>Senior Software Engineer II</span>
+              </div>
+            </div>
+            <ul class="facts">
+              <li><span class="k">Company</span><span class="v">PowerSchool</span></li>
+              <li><span class="k">Location</span><span class="v">Bangalore, India</span></li>
+              <li><span class="k">Focus</span><span class="v">Serverless &amp; distributed systems, full-stack
+                  engineering</span></li>
+              <li><span class="k">Certified</span><span class="v">AWS Solutions Architect — Professional <a
+                    class="more" href="#credentials">+3 more</a></span></li>
+              <li><span class="k">Stack</span><span class="v">TypeScript · Node.js · React · AWS</span></li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><strong>10+</strong><span>Years building production software</span></div>
+          <div class="metric"><strong>60M+</strong><span>Events processed per day on AWS</span></div>
+          <div class="metric"><strong>50%</strong><span>Less developer environment setup time</span></div>
+          <div class="metric"><strong>4×</strong><span>AWS certifications, incl. Professional</span></div>
         </div>
       </div>
     </section>
-    <section id="about">
+
+    <!-- About -->
+    <section id="about" class="alt">
       <div class="wrap">
-        <div class="eyebrow">About</div>
-        <h2>Engineering from idea to production.</h2>
-        <div class="about">
-          <div class="panel">
-            <p>My experience spans the full software development lifecycle: understanding product requirements, shaping
-              technical designs, building APIs and user interfaces, creating cloud infrastructure, implementing
-              automated tests, deploying services, and supporting production systems.</p>
-            <p>At PowerSchool, I've worked on high-volume analytics pipelines, Student and Staff data integration,
-              reusable product architecture, and internal developer tools. I also contribute through technical design
-              discussions, code reviews, mentoring, and cross-team collaboration.</p>
-            <p>Earlier in my career, I built multi-tenant SaaS and health-insurance platforms, including workflow
-              capabilities, security features, enterprise authentication, dynamic forms, and reusable UI components. I'm
-              adaptable, curious, and comfortable learning technologies as project needs evolve.</p>
+        <div class="section-head">
+          <div>
+            <span class="label">About</span>
+            <h2>Engineering from idea to production.</h2>
           </div>
-          <div class="focus">
-            <div><b>Architecture & scale</b>Event-driven systems, serverless platforms, distributed processing</div>
-            <div><b>Full-stack engineering</b>Node.js, TypeScript, React, REST APIs</div>
-            <div><b>Cloud & delivery</b>AWS, infrastructure as code, CI/CD, Docker</div>
-            <div><b>Engineering leadership</b>Technical design, code reviews, mentoring, production ownership</div>
+          <p>Adaptable and eager to learn — I pick up new technologies quickly and apply them to solve complex
+            engineering problems.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I design and deliver software across the full lifecycle — from shaping product requirements and
+              technical designs to building APIs and interfaces, provisioning cloud infrastructure, and supporting
+              systems in production.</p>
+            <p>At PowerSchool, I've architected high-volume analytics pipelines, cloud-native data integration
+              platforms, reusable product architecture, and internal developer tooling. I lead technical design
+              discussions, review code across teams, mentor engineers, and own P0 incident response.</p>
+            <p>Earlier, at Wipro and Infosys, I built multi-tenant SaaS and health-insurance platforms — including BPMN
+              workflow tooling, a Node.js security framework, SAML-based enterprise SSO, dynamic form engines, and
+              reusable micro-UI components.</p>
+          </div>
+          <div class="strengths">
+            <div class="strength">
+              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg></div>
+              <h3>Architecture &amp; scale</h3>
+              <p>Event-driven, serverless, and distributed systems designed for high volume.</p>
+            </div>
+            <div class="strength">
+              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+                </svg></div>
+              <h3>Full-stack engineering</h3>
+              <p>Node.js, TypeScript, React and REST APIs, taken end-to-end to production.</p>
+            </div>
+            <div class="strength">
+              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.78A6 6 0 1 0 6 16.9" />
+                  <path d="M6 19h11.5" />
+                </svg></div>
+              <h3>Cloud &amp; delivery</h3>
+              <p>AWS, infrastructure as code with CDK, CI/CD pipelines, and Docker.</p>
+            </div>
+            <div class="strength">
+              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg></div>
+              <h3>Technical leadership</h3>
+              <p>Design reviews, mentoring, and ownership of production reliability.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Work -->
     <section id="work">
       <div class="wrap">
-        <div class="eyebrow">Selected work</div>
-        <h2>Projects and impact.</h2>
-        <p class="intro">A selection of platforms and engineering initiatives I've contributed to throughout my career.
-        </p>
-        <div class="grid">
-          <article class="card">
-            <div class="num">01 / CLOUD & DISTRIBUTED SYSTEMS</div>
-            <h3>Usage Analytics Platform</h3>
-            <p>Led the migration of a manually managed analytics pipeline to AWS Kinesis Streams and Firehose, building
-              a resilient serverless platform processing more than 60 million events per day.</p>
-            <div class="tags"><span class="tag">AWS Kinesis</span><span class="tag">Firehose</span><span
-                class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">CDK</span></div>
+        <div class="section-head">
+          <div>
+            <span class="label">Selected work</span>
+            <h2>Projects &amp; impact.</h2>
+          </div>
+          <p>A selection of platforms and engineering initiatives I've designed, built, and owned across my career.</p>
+        </div>
+
+        <div class="featured">
+          <article class="case">
+            <div class="case-body">
+              <div class="meta"><b>01 · Featured</b><span>PowerSchool</span><span>Cloud &amp; distributed systems</span>
+              </div>
+              <h3>Usage Analytics Platform</h3>
+              <p>Architected and led the migration of a manually managed analytics pipeline to AWS Kinesis Streams and
+                Firehose, creating a resilient serverless platform with significantly lower operational overhead.</p>
+              <ul class="points">
+                <li>Designed for high-volume event ingestion with improved scalability and reliability.</li>
+                <li>Applied event-driven patterns to decouple services and improve resilience.</li>
+                <li>Provisioned infrastructure with AWS CDK / CloudFormation for repeatable deployments.</li>
+              </ul>
+              <div class="tags"><span class="tag">Kinesis Streams</span><span class="tag">Firehose</span><span
+                  class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">AWS CDK</span><span
+                  class="tag">Event-driven</span></div>
+            </div>
+            <div class="case-impact">
+              <span class="k">Impact</span>
+              <strong>60M+</strong>
+              <p>events processed per day on a fully serverless, event-driven pipeline.</p>
+            </div>
           </article>
+
+          <article class="case">
+            <div class="case-body">
+              <div class="meta"><b>02 · Featured</b><span>PowerSchool</span><span>Developer productivity</span></div>
+              <h3>Developer &amp; Operational Tooling</h3>
+              <p>Built and shipped an internal VS Code / Cursor extension that lets developers run and debug
+                containerized test cases with a single click.</p>
+              <ul class="points">
+                <li>Created an MCP-powered assistant that brings on-call runbooks, team ownership, and troubleshooting
+                  workflows into the IDE.</li>
+                <li>Containerized services with Docker for a fully local development environment.</li>
+                <li>Owned P0 incident response using CloudWatch, Datadog, and New Relic.</li>
+              </ul>
+              <div class="tags"><span class="tag">VS Code</span><span class="tag">Cursor</span><span
+                  class="tag">MCP</span><span class="tag">Docker</span><span class="tag">Datadog</span><span
+                  class="tag">Observability</span></div>
+            </div>
+            <div class="case-impact">
+              <span class="k">Impact</span>
+              <strong>50%</strong>
+              <p>reduction in developer environment setup time, with faster incident response.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cards">
           <article class="card">
-            <div class="num">02 / DATA INTEGRATION</div>
-            <h3>Student & Staff Data Integration</h3>
-            <p>Designed a cloud-native ETL platform to ingest Student and Staff data from SIS platforms, orchestrating
-              asynchronous workflows for enterprise data integration.</p>
+            <div class="meta"><b>03</b><span>PowerSchool</span><span>Data integration</span></div>
+            <h3>Student &amp; Staff Data Integration</h3>
+            <p>Designed a cloud-native ETL platform ingesting Student and Staff data from SIS platforms, with serverless
+              workflows orchestrating asynchronous processing for reliable, large-scale integration across enterprise
+              customers.</p>
             <div class="tags"><span class="tag">Lambda</span><span class="tag">Step Functions</span><span
                 class="tag">EventBridge</span><span class="tag">S3</span><span class="tag">ETL</span></div>
           </article>
           <article class="card">
-            <div class="num">03 / FULL-STACK PRODUCT ENGINEERING</div>
-            <h3>Core Product & Full-Stack Platform</h3>
-            <p>Built and maintained applications and REST APIs using Node.js, TypeScript, React, and AWS. Contributed to
-              reusable micro-frontends, automated Jest testing, CI/CD, and production support.</p>
-            <div class="tags"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">REST
-                APIs</span><span class="tag">Jest</span><span class="tag">CI/CD</span></div>
+            <div class="meta"><b>04</b><span>PowerSchool</span><span>Full-stack product</span></div>
+            <h3>Core Product &amp; Full-Stack Platform</h3>
+            <p>Built full-stack features and REST APIs end-to-end, engineered a plug-and-play micro-frontend
+              architecture, and led internationalization with Arabic, RTL rendering, and Hijri calendar support.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span
+                class="tag">Micro-frontends</span><span class="tag">Jest</span><span class="tag">i18n / RTL</span>
+            </div>
           </article>
           <article class="card">
-            <div class="num">04 / DEVELOPER PRODUCTIVITY</div>
-            <h3>Developer & Operational Tools</h3>
-            <p>Created a VS Code/Cursor extension that reduced containerized test environment setup time by 50%, and an
-              MCP-powered assistant that brings on-call runbooks and troubleshooting workflows into the developer
-              environment.</p>
-            <div class="tags"><span class="tag">VS Code</span><span class="tag">Cursor</span><span
-                class="tag">MCP</span><span class="tag">Docker</span></div>
-          </article>
-          <article class="card">
-            <div class="num">05 / ENTERPRISE SAAS & SECURITY</div>
+            <div class="meta"><b>05</b><span>Wipro</span><span>Enterprise SaaS &amp; security</span></div>
             <h3>Multi-Tenant Business Process Platform</h3>
-            <p>Built SaaS capabilities for quality checks, SLA management, BPMN-based workflows, notifications, and
-              queue orchestration, alongside Node.js security features and SAML-based enterprise authentication.</p>
+            <p>Delivered Quality Check, SLA, notification, and queue modules plus a BPMN process designer. Built a
+              Node.js security framework, SAML-based SSO with Azure AD, and a PWA frontend with push alerts.</p>
             <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span
                 class="tag">MongoDB</span><span class="tag">BPMN</span><span class="tag">SAML SSO</span></div>
           </article>
           <article class="card">
-            <div class="num">06 / PLATFORM FRAMEWORKS</div>
+            <div class="meta"><b>06</b><span>Infosys</span><span>Platform frameworks</span></div>
             <h3>Multi-Tenant Health Insurance Platform</h3>
-            <p>Developed a JSON-driven dynamic form engine, an administrative portal for application and user
+            <p>Built a JSON-driven dynamic form engine, an admin portal for application deployment and user
               management, role-based access control, and reusable micro-UI components.</p>
             <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span
                 class="tag">MongoDB</span><span class="tag">RBAC</span><span class="tag">Micro-UI</span></div>
@@ -497,104 +1267,231 @@
         </div>
       </div>
     </section>
-    <section id="experience">
+
+    <!-- Experience -->
+    <section id="experience" class="alt">
       <div class="wrap">
-        <div class="eyebrow">Career</div>
-        <h2>Professional experience.</h2>
-        <div class="jobs">
-          <article class="job">
-            <div class="date">Nov 2021 — Present</div>
-            <div>
-              <h3>Senior Software Engineer II</h3>
-              <div class="muted">PowerSchool · Bangalore, India</div>
-              <p>Cloud-native analytics and ETL platforms, full-stack product engineering, developer productivity
-                tooling, technical design, mentoring, and production reliability.</p>
+        <div class="section-head">
+          <div>
+            <span class="label">Experience</span>
+            <h2>Where I've worked.</h2>
+          </div>
+          <p>A decade of building products across ed-tech, enterprise SaaS, and insurance platforms.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="role-side">
+              <div class="company">PowerSchool</div>
+              <span class="when">Nov 2021 — Present</span>
+              <span class="where">Bangalore, India</span>
+            </div>
+            <div class="role-main">
+              <h3>Senior Software Engineer II <span class="now">Current</span></h3>
+              <p class="summary">Cloud-native analytics and ETL platforms, full-stack product engineering, and developer
+                productivity tooling.</p>
+              <ul class="points">
+                <li>Led migration of the analytics pipeline to Kinesis Streams &amp; Firehose, processing 60M+
+                  events/day.</li>
+                <li>Designed a serverless ETL platform for SIS Student &amp; Staff data integration.</li>
+                <li>Engineered a reusable micro-frontend architecture and led platform internationalization (Arabic,
+                  RTL, Hijri calendar).</li>
+                <li>Shipped a VS Code / Cursor extension cutting environment setup time by 50%, plus an MCP-powered
+                  on-call assistant.</li>
+                <li>Lead technical design and code reviews, mentor engineers, and own P0 incident response.</li>
+              </ul>
             </div>
           </article>
-          <article class="job">
-            <div class="date">Jul 2019 — Nov 2021</div>
-            <div>
+
+          <article class="role">
+            <div class="role-side">
+              <div class="company">Wipro</div>
+              <span class="when">Jul 2019 — Nov 2021</span>
+              <span class="where">Pune, India</span>
+            </div>
+            <div class="role-main">
               <h3>Senior Software Engineer</h3>
-              <div class="muted">Wipro · Pune, India</div>
-              <p>Multi-tenant SaaS and business-process platform development, Node.js security, BPMN workflows,
-                SAML-based SSO, PWA capabilities, and operational tooling.</p>
+              <p class="summary">Multi-tenant SaaS and business-process digitization platform.</p>
+              <ul class="points">
+                <li>Built Quality Check, SLA, notification, and queue orchestration modules on Node.js, Angular, and
+                  MongoDB.</li>
+                <li>Developed a BPMN-based visual designer for configuring business workflows.</li>
+                <li>Designed a Node.js security framework with request sanitization and content-based file
+                  verification.</li>
+                <li>Integrated Azure AD SAML-based SSO and end-to-end encryption per IRMC standards.</li>
+                <li>Modernized the frontend into a PWA with Firebase push notifications.</li>
+              </ul>
             </div>
           </article>
-          <article class="job">
-            <div class="date">Dec 2016 — Jun 2019</div>
-            <div>
+
+          <article class="role">
+            <div class="role-side">
+              <div class="company">Infosys</div>
+              <span class="when">Dec 2016 — Jun 2019</span>
+              <span class="where">Pune, India</span>
+            </div>
+            <div class="role-main">
               <h3>Specialist Programmer</h3>
-              <div class="muted">Infosys · Pune, India</div>
-              <p>Multi-tenant health-insurance platform, dynamic form generation, application administration, RBAC, and
-                reusable micro-UI components.</p>
+              <p class="summary">Multi-tenant health-insurance product configuration platform.</p>
+              <ul class="points">
+                <li>Built a dynamic form-generation engine rendering UI from backend JSON configuration.</li>
+                <li>Developed an admin portal for application deployment and user provisioning.</li>
+                <li>Implemented role-based access control across multi-tenant applications.</li>
+                <li>Engineered reusable, injectable micro-UI components for cross-application reuse.</li>
+              </ul>
             </div>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- Skills -->
     <section id="skills">
       <div class="wrap">
-        <div class="eyebrow">Technical toolkit</div>
-        <h2>Skills & technologies.</h2>
+        <div class="section-head">
+          <div>
+            <span class="label">Toolkit</span>
+            <h2>Skills &amp; technologies.</h2>
+          </div>
+          <p>The languages, platforms, and practices I use to design, ship, and operate software.</p>
+        </div>
         <div class="skills">
           <div class="skill">
-            <h3>Languages & backend</h3>
-            <p>TypeScript, JavaScript, Node.js, Express.js, SQL, REST APIs</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+                </svg></span>Languages &amp; backend</h3>
+            <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span
+                class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">SQL</span><span
+                class="tag">REST APIs</span></div>
           </div>
           <div class="skill">
-            <h3>Cloud & architecture</h3>
-            <p>AWS, Kinesis, Firehose, Lambda, Step Functions, EventBridge, S3, CloudWatch, serverless, microservices,
-              distributed systems</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.78A6 6 0 1 0 6 16.9" />
+                  <path d="M6 19h11.5" />
+                </svg></span>Cloud &amp; architecture</h3>
+            <div class="tags"><span class="tag">AWS</span><span class="tag">Kinesis</span><span
+                class="tag">Firehose</span><span class="tag">Lambda</span><span class="tag">Step Functions</span><span
+                class="tag">EventBridge</span><span class="tag">S3</span><span class="tag">Serverless</span><span
+                class="tag">Microservices</span><span class="tag">System design</span></div>
           </div>
           <div class="skill">
-            <h3>Frontend</h3>
-            <p>React, Angular, micro-frontends, Progressive Web Apps, internationalization, RTL</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M3 9h18" />
+                </svg></span>Frontend</h3>
+            <div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span
+                class="tag">Micro-frontends</span><span class="tag">PWA</span><span class="tag">i18n</span><span
+                class="tag">RTL</span></div>
           </div>
           <div class="skill">
-            <h3>Databases</h3>
-            <p>DynamoDB, MongoDB, MySQL; PostgreSQL — prior experience</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+                </svg></span>Databases</h3>
+            <div class="tags"><span class="tag">DynamoDB</span><span class="tag">MongoDB</span><span
+                class="tag">MySQL</span><span class="tag">PostgreSQL</span></div>
           </div>
           <div class="skill">
-            <h3>Testing & delivery</h3>
-            <p>Jest, unit and integration testing, CI/CD, Docker, infrastructure as code, AWS CDK, CloudFormation</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg></span>Testing &amp; delivery</h3>
+            <div class="tags"><span class="tag">Jest</span><span class="tag">Integration testing</span><span
+                class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">AWS CDK</span><span
+                class="tag">CloudFormation</span></div>
           </div>
           <div class="skill">
-            <h3>Operations & leadership</h3>
-            <p>CloudWatch, Datadog, New Relic, observability, P0 incident response, technical design, code reviews,
-              mentoring</p>
+            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg></span>Operations &amp; practices</h3>
+            <div class="tags"><span class="tag">CloudWatch</span><span class="tag">Datadog</span><span class="tag">New
+                Relic</span><span class="tag">Observability</span><span class="tag">Incident response</span><span
+                class="tag">RBAC</span><span class="tag">Security</span></div>
           </div>
         </div>
       </div>
     </section>
-    <section id="certifications">
+
+    <!-- Credentials -->
+    <section id="credentials" class="alt">
       <div class="wrap">
-        <div class="eyebrow">Credentials</div>
-        <h2>Certifications.</h2>
-        <div class="certs">
-          <div class="cert">AWS Certified Solutions Architect — Professional</div>
-          <div class="cert">AWS Certified Solutions Architect — Associate</div>
-          <div class="cert">AWS Certified Developer — Associate</div>
-          <div class="cert">AWS Certified AI Practitioner</div>
+        <div class="section-head">
+          <div>
+            <span class="label">Credentials</span>
+            <h2>Certifications &amp; education.</h2>
+          </div>
+        </div>
+        <div class="creds">
+          <div class="panel">
+            <h3>AWS Certifications</h3>
+            <ul class="cert-list">
+              <li><span class="badge">AWS</span><span>Solutions Architect — Professional<small>Amazon Web
+                    Services</small></span></li>
+              <li><span class="badge">AWS</span><span>Solutions Architect — Associate<small>Amazon Web
+                    Services</small></span></li>
+              <li><span class="badge">AWS</span><span>Developer — Associate<small>Amazon Web Services</small></span>
+              </li>
+              <li><span class="badge">AWS</span><span>AI Practitioner<small>Amazon Web Services</small></span></li>
+            </ul>
+          </div>
+          <div class="panel edu">
+            <h3>Education</h3>
+            <strong>Bachelor of Engineering, Information Technology</strong>
+            <p>Gujarat Technological University (GTU)</p>
+            <div class="row"><span class="tag">Class of 2016</span><span class="tag">CGPA 8.24 / 10</span></div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Contact -->
     <section id="contact">
       <div class="wrap">
         <div class="contact">
-          <div class="eyebrow">Let's connect</div>
-          <h2>Have an interesting engineering challenge?</h2>
-          <p>I'm interested in connecting with engineering teams, discussing system design and cloud architecture, and
-            exploring opportunities to build useful, reliable software.</p>
-          <div class="actions"><a class="btn primary" href="mailto:shah20@ymail.com">Email me</a><a class="btn"
-              href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn"
-              href="https://github.com/shah20" target="_blank" rel="noopener">GitHub ↗</a></div>
+          <div>
+            <span class="label">Let's connect</span>
+            <h2>Have an interesting engineering challenge?</h2>
+            <p>I'm always happy to talk system design, cloud architecture, and building useful, reliable software with
+              great teams.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:shah20@ymail.com"><span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>Email</span><small>shah20@ymail.com</small></a>
+            <a href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener"><span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                </svg>LinkedIn</span><small>in/shah20 ↗</small></a>
+            <a href="https://github.com/shah20" target="_blank" rel="noopener"><span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3" />
+                </svg>GitHub</span><small>shah20 ↗</small></a>
+            <a href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener"><span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                  <path d="M14 3v6h6" />
+                </svg>Resume</span><small>PDF ↗</small></a>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
-    <div class="wrap foot"><span>© 2026 Rushabh Shah</span>
-      <!-- <span>Built with HTML & CSS · Hosted on GitHub Pages</span> -->
+    <div class="wrap foot">
+      <span>© 2026 Rushabh Shah · Bangalore, India</span>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 </body>
