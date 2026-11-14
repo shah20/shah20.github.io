@@ -15,9 +15,10 @@ Live site: **https://shah20.github.io**
 
 ```
 .
-├── index.html                    # Portfolio homepage (markup + inline styles)
-├── 404.html / 404.md             # Custom "page not found" page
+├── index.html                    # Portfolio homepage (markup + SVG icon sprite)
+├── 404.html                      # Custom "page not found" page
 ├── assets/
+│   ├── style.css                 # Shared styles for all pages
 │   ├── photo.jpg                 # Profile photo (480×480, optimised)
 │   ├── og-image.jpg              # 1200×630 link-preview card
 │   └── Rushabh_Shah_Resume.pdf   # Resume linked from the site
@@ -36,7 +37,8 @@ Then open http://localhost:8000.
 
 - **Site content:** edit [index.html](index.html). Each section (`#about`, `#work`, `#experience`, `#skills`, `#credentials`, `#contact`) is clearly marked.
 - **Resume:** replace `assets/Rushabh_Shah_Resume.pdf` and keep the same file name so existing links continue to work. The LaTeX source is maintained separately in Overleaf.
-- **Theme colours:** adjust the CSS variables in `:root` (light) and the `prefers-color-scheme: dark` block at the top of the `<style>` section.
+- **Theme colours:** adjust the CSS variables in `:root` (light) and the `prefers-color-scheme: dark` block at the top of [assets/style.css](assets/style.css).
+- **Icons:** defined once as `<symbol>`s at the top of `index.html` and reused with `<svg class="ico"><use href="#i-name" /></svg>`.
 
 ## Deployment
 

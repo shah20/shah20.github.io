@@ -25,1072 +25,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
     rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light dark;
-      --bg: #f6f5f1;
-      --surface: #ffffff;
-      --surface-2: #f0eee8;
-      --text: #121722;
-      --muted: #545d6e;
-      --faint: #858c99;
-      --line: #e3e0d8;
-      --accent: #2346c8;
-      --accent-ink: #ffffff;
-      --accent-soft: #e9eefc;
-      --header: rgba(246, 245, 241, .82);
-      --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 10px 30px rgba(16, 24, 40, .06);
-      --radius: 16px;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0e1116;
-        --surface: #151a22;
-        --surface-2: #1b212b;
-        --text: #e9edf3;
-        --muted: #a3acba;
-        --faint: #78839a;
-        --line: #262d39;
-        --accent: #86a2ff;
-        --accent-ink: #0b1020;
-        --accent-soft: #1b2442;
-        --header: rgba(14, 17, 22, .82);
-        --shadow: none;
-      }
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.15;
-      letter-spacing: -.025em
-    }
-
-    p {
-      margin: 0
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none
-    }
-
-    svg {
-      flex-shrink: 0
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 6px
-    }
-
-    .wrap {
-      width: min(1120px, calc(100% - 48px));
-      margin-inline: auto
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--header);
-      backdrop-filter: saturate(180%) blur(14px);
-      -webkit-backdrop-filter: saturate(180%) blur(14px);
-      border-bottom: 1px solid var(--line)
-    }
-
-    nav {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: -.01em
-    }
-
-    .mark {
-      display: grid;
-      place-items: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 9px;
-      background: var(--accent);
-      color: var(--accent-ink);
-      font-size: .78rem;
-      font-weight: 800
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: .9rem;
-      color: var(--muted);
-      font-weight: 500
-    }
-
-    .nav-links a:hover {
-      color: var(--text)
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 18px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      font-size: .9rem;
-      font-weight: 600;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: var(--faint)
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .btn.primary:hover {
-      filter: brightness(1.08)
-    }
-
-    .btn.small {
-      padding: 7px 13px;
-      font-size: .82rem
-    }
-
-    /* Section scaffolding */
-    section {
-      padding: 96px 0
-    }
-
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font: 500 .75rem/1 var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--accent)
-    }
-
-    .label::before {
-      content: "";
-      width: 22px;
-      height: 1px;
-      background: currentColor
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: end;
-      gap: 32px;
-      margin-bottom: 44px
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-      margin-top: 14px
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 470px;
-      justify-self: end
-    }
-
-    .alt {
-      background: var(--surface);
-      border-block: 1px solid var(--line)
-    }
-
-    /* Hero */
-    .hero {
-      padding: 88px 0 72px
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 56px;
-      align-items: center
-    }
-
-    .hello {
-      color: var(--muted);
-      font-weight: 500;
-      margin-top: 20px
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5.6vw, 4.2rem);
-      letter-spacing: -.045em;
-      line-height: 1.04;
-      margin: 10px 0 22px
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent)
-    }
-
-    .lead {
-      font-size: 1.12rem;
-      color: var(--muted);
-      max-width: 620px
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px
-    }
-
-    .socials {
-      display: flex;
-      gap: 18px;
-      margin-top: 28px;
-      color: var(--muted);
-      font-size: .88rem;
-      font-weight: 500
-    }
-
-    .socials a {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
-    }
-
-    .socials a:hover {
-      color: var(--accent)
-    }
-
-    .profile {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      overflow: hidden
-    }
-
-    .profile-top {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 24px;
-      border-bottom: 1px solid var(--line)
-    }
-
-    .avatar {
-      display: block;
-      width: 84px;
-      height: 84px;
-      border-radius: 20px;
-      object-fit: cover;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      box-shadow: 0 0 0 4px var(--accent-soft)
-    }
-
-    .profile-top strong {
-      display: block;
-      font-size: 1.05rem
-    }
-
-    .profile-top span {
-      color: var(--muted);
-      font-size: .88rem
-    }
-
-    .facts {
-      padding: 8px 24px 12px
-    }
-
-    .facts li {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px dashed var(--line);
-      font-size: .9rem
-    }
-
-    .facts li:last-child {
-      border-bottom: 0
-    }
-
-    .facts dt,
-    .facts .k {
-      color: var(--faint);
-      font: 500 .72rem/1.9 var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .08em
-    }
-
-    .facts .v {
-      font-weight: 500
-    }
-
-    .facts .more {
-      display: inline-block;
-      margin-left: 4px;
-      padding: 1px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: .76rem;
-      font-weight: 600;
-      white-space: nowrap
-    }
-
-    .facts .more:hover {
-      text-decoration: underline
-    }
-
-    /* Metrics */
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 72px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      overflow: hidden
-    }
-
-    .metric {
-      padding: 26px 26px 24px;
-      border-right: 1px solid var(--line)
-    }
-
-    .metric:last-child {
-      border-right: 0
-    }
-
-    .metric strong {
-      display: block;
-      font-size: clamp(1.8rem, 3vw, 2.3rem);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      line-height: 1.1
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: .88rem
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 56px
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      font-size: 1.04rem;
-      margin-bottom: 18px
-    }
-
-    .about-copy p:first-child {
-      color: var(--text);
-      font-size: 1.2rem;
-      line-height: 1.55;
-      font-weight: 500;
-      letter-spacing: -.01em
-    }
-
-    .strengths {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px
-    }
-
-    .strength {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--bg)
-    }
-
-    .icon {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      margin-bottom: 14px
-    }
-
-    .strength h3 {
-      font-size: .98rem;
-      margin-bottom: 6px
-    }
-
-    .strength p {
-      color: var(--muted);
-      font-size: .88rem;
-      line-height: 1.55
-    }
-
-    /* Work */
-    .featured {
-      display: grid;
-      gap: 20px;
-      margin-bottom: 20px
-    }
-
-    .case {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow)
-    }
-
-    .case-body {
-      padding: 34px
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 14px;
-      font: 500 .72rem/1.6 var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--faint)
-    }
-
-    .meta b {
-      color: var(--accent);
-      font-weight: 500
-    }
-
-    .case h3 {
-      font-size: 1.55rem;
-      margin: 12px 0 12px
-    }
-
-    .case-body>p {
-      color: var(--muted)
-    }
-
-    .points {
-      display: grid;
-      gap: 10px;
-      margin: 20px 0 24px
-    }
-
-    .points li {
-      position: relative;
-      padding-left: 22px;
-      font-size: .94rem;
-      color: var(--muted)
-    }
-
-    .points li::before {
-      content: "";
-      position: absolute;
-      left: 2px;
-      top: .62em;
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      background: var(--accent);
-      opacity: .75
-    }
-
-    .case-impact {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
-      padding: 34px;
-      background: var(--accent-soft);
-      border-left: 1px solid var(--line)
-    }
-
-    .case-impact .k {
-      font: 500 .72rem/1 var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--accent)
-    }
-
-    .case-impact strong {
-      font-size: clamp(2.8rem, 5vw, 3.8rem);
-      font-weight: 800;
-      letter-spacing: -.05em;
-      line-height: 1
-    }
-
-    .case-impact p {
-      color: var(--muted);
-      font-size: .94rem;
-      max-width: 260px
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px
-    }
-
-    .tag {
-      font-size: .76rem;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      padding: 3px 10px;
-      border-radius: 999px
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      padding: 28px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease
-    }
-
-    .card:hover,
-    .case:hover {
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--line))
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow)
-    }
-
-    .card h3 {
-      font-size: 1.18rem;
-      margin: 12px 0 10px
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: .94rem;
-      margin-bottom: 20px;
-      flex: 1
-    }
-
-    /* Experience */
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 20px
-    }
-
-    .role {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 40px;
-      padding: 32px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--radius)
-    }
-
-    .role-side .company {
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -.03em
-    }
-
-    .role-side .when {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font: 500 .74rem/1.4 var(--mono)
-    }
-
-    .role-side .where {
-      display: block;
-      margin-top: 10px;
-      color: var(--faint);
-      font-size: .86rem
-    }
-
-    .role-main h3 {
-      font-size: 1.15rem
-    }
-
-    .role-main .summary {
-      color: var(--muted);
-      margin: 8px 0 16px
-    }
-
-    .role-main .points {
-      margin: 0
-    }
-
-    .beyond-head {
-      margin: 56px 0 20px;
-      padding-top: 48px;
-      border-top: 1px solid var(--line)
-    }
-
-    .beyond-head h3 {
-      font-size: 1.3rem;
-      margin-top: 12px
-    }
-
-    .beyond-head p {
-      color: var(--muted);
-      margin-top: 6px;
-      max-width: 620px
-    }
-
-    .beyond {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px
-    }
-
-    .now {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 10px;
-      font: 500 .68rem/1 var(--mono);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #15803d;
-      vertical-align: middle
-    }
-
-    .now::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, .18)
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .now {
-        color: #4ade80
-      }
-    }
-
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px
-    }
-
-    .skill {
-      padding: 26px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius)
-    }
-
-    .skill h3 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1rem;
-      margin-bottom: 16px
-    }
-
-    .skill h3 .icon {
-      margin: 0;
-      width: 32px;
-      height: 32px
-    }
-
-    /* Credentials */
-    .creds {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 20px
-    }
-
-    .creds>* {
-      min-width: 0
-    }
-
-    .panel {
-      padding: 30px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--radius)
-    }
-
-    .panel>h3 {
-      font-size: 1.05rem;
-      margin-bottom: 18px
-    }
-
-    .cert-list {
-      display: grid;
-      gap: 12px
-    }
-
-    .cert-list a {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: .94rem;
-      transition: border-color .15s ease, transform .15s ease
-    }
-
-    .cert-list a:hover {
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-      transform: translateY(-1px)
-    }
-
-    .verify {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: .76rem;
-      font-weight: 600;
-      white-space: nowrap
-    }
-
-    .cert-list small {
-      display: block;
-      color: var(--faint);
-      font-weight: 500;
-      font-size: .8rem
-    }
-
-    .badge {
-      display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #232f3e;
-      color: #ff9900;
-      font: 800 .7rem/1 Inter, sans-serif;
-      letter-spacing: .02em
-    }
-
-    .edu strong {
-      display: block;
-      font-size: 1.12rem;
-      letter-spacing: -.01em
-    }
-
-    .edu p {
-      color: var(--muted);
-      margin-top: 6px
-    }
-
-    .edu .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px
-    }
-
-    /* Contact */
-    .contact {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 56px;
-      border-radius: 24px;
-      background: #111a33;
-      color: #eef2ff;
-      position: relative;
-      overflow: hidden
-    }
-
-    .contact::after {
-      content: "";
-      position: absolute;
-      inset: auto -120px -160px auto;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 156, 255, .35), transparent 65%);
-      pointer-events: none
-    }
-
-    .contact .label {
-      color: #9fb4ff
-    }
-
-    .contact h2 {
-      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-      margin: 14px 0 14px
-    }
-
-    .contact p {
-      color: #b7c2dc;
-      max-width: 520px
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 12px;
-      position: relative;
-      z-index: 1
-    }
-
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      font-weight: 600;
-      transition: background .15s ease, transform .15s ease
-    }
-
-    .contact-links a:hover {
-      background: rgba(255, 255, 255, .11);
-      transform: translateX(3px)
-    }
-
-    .contact-links span {
-      display: flex;
-      align-items: center;
-      gap: 12px
-    }
-
-    .contact-links small {
-      color: #9aa7c4;
-      font-weight: 500
-    }
-
-    footer {
-      padding: 32px 0 44px;
-      color: var(--faint);
-      font-size: .86rem
-    }
-
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px
-    }
-
-    .foot a:hover {
-      color: var(--accent)
-    }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-
-      .hero-grid,
-      .about-grid,
-      .case,
-      .creds,
-      .contact {
-        grid-template-columns: 1fr
-      }
-
-      .hero-grid {
-        gap: 40px
-      }
-
-      .case-impact {
-        border-left: 0;
-        border-top: 1px solid var(--line)
-      }
-
-      .skills {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .role {
-        grid-template-columns: 1fr;
-        gap: 18px
-      }
-
-      .beyond {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .metrics {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .metric:nth-child(2) {
-        border-right: 0
-      }
-
-      .metric:nth-child(-n+2) {
-        border-bottom: 1px solid var(--line)
-      }
-    }
-
-    @media (max-width: 720px) {
-      .wrap {
-        width: calc(100% - 32px)
-      }
-
-      section {
-        padding: 72px 0
-      }
-
-      .hero {
-        padding: 56px 0
-      }
-
-      .nav-links a:not(.btn) {
-        display: none
-      }
-
-      .section-head {
-        grid-template-columns: 1fr;
-        gap: 14px
-      }
-
-      .section-head p {
-        justify-self: start
-      }
-
-      .cards,
-      .skills,
-      .strengths,
-      .beyond {
-        grid-template-columns: 1fr
-      }
-
-      .case-body,
-      .case-impact,
-      .card,
-      .role,
-      .panel {
-        padding: 24px
-      }
-
-      .contact {
-        padding: 32px 24px
-      }
-    }
-
-    @media (max-width: 420px) {
-      .cert-list a {
-        flex-wrap: wrap;
-        row-gap: 10px
-      }
-
-      .cert-list a>span:nth-child(2) {
-        flex: 1 1 calc(100% - 60px)
-      }
-
-      .verify {
-        margin-left: 54px
-      }
-
-      .metrics {
-        grid-template-columns: 1fr
-      }
-
-      .metric {
-        border-right: 0;
-        border-bottom: 1px solid var(--line)
-      }
-
-      .metric:last-child {
-        border-bottom: 0
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto
-      }
-
-      * {
-        transition: none !important
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
+  <svg style="display:none">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6" /></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" /></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3" /></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6" /></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.78A6 6 0 1 0 6 16.9" /><path d="M6 19h11.5" /></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z" /></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z" /><path d="M6 12v5c3 2 9 2 12 0v-5" /></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18" /></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></symbol>
+  </svg>
+
   <header>
     <nav class="wrap" aria-label="Primary">
       <a class="brand" href="#top"><span class="mark">RS</span>Rushabh Shah</a>
@@ -1119,33 +77,17 @@
               owning business-critical platforms from design to production.</p>
             <div class="actions">
               <a class="btn primary" href="#work">View selected work
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg></a>
+                <svg class="ico thick" aria-hidden="true"><use href="#i-arrow" /></svg></a>
               <a class="btn" href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
-                </svg>Download resume</a>
+                <svg class="ico" aria-hidden="true"><use href="#i-download" /></svg>Download resume</a>
             </div>
             <div class="socials">
               <a href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-                </svg>LinkedIn</a>
+                <svg class="ico solid" aria-hidden="true"><use href="#i-linkedin" /></svg>LinkedIn</a>
               <a href="https://github.com/shah20" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3" />
-                </svg>GitHub</a>
+                <svg class="ico solid" aria-hidden="true"><use href="#i-github" /></svg>GitHub</a>
               <a href="mailto:shah20@ymail.com">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>shah20@ymail.com</a>
+                <svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg>shah20@ymail.com</a>
             </div>
           </div>
 
@@ -1203,35 +145,22 @@
           </div>
           <div class="strengths">
             <div class="strength">
-              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg></div>
+              <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-layers" /></svg></div>
               <h3>Architecture &amp; scale</h3>
               <p>Event-driven, serverless, and distributed systems designed for high volume.</p>
             </div>
             <div class="strength">
-              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
-                </svg></div>
+              <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-code" /></svg></div>
               <h3>Full-stack engineering</h3>
               <p>Node.js, TypeScript, React and REST APIs, taken end-to-end to production.</p>
             </div>
             <div class="strength">
-              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.78A6 6 0 1 0 6 16.9" />
-                  <path d="M6 19h11.5" />
-                </svg></div>
+              <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-cloud" /></svg></div>
               <h3>Cloud &amp; delivery</h3>
               <p>AWS, infrastructure as code with CDK, CI/CD pipelines, and Docker.</p>
             </div>
             <div class="strength">
-              <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg></div>
+              <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-users" /></svg></div>
               <h3>Technical leadership</h3>
               <p>Lead design and code reviews across teams, mentor engineers, and own production reliability.</p>
             </div>
@@ -1420,39 +349,25 @@
         </div>
         <div class="beyond">
           <div class="strength">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-                <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z" />
-              </svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-compass" /></svg></div>
             <h3>Technical direction</h3>
             <p>Led the architecture and delivery of the analytics pipeline migration and the platform-wide
               internationalization initiative.</p>
           </div>
           <div class="strength">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-users" /></svg></div>
             <h3>Cross-team influence</h3>
             <p>Lead technical design discussions and code reviews across teams, driving architectural decisions for
               scalable, maintainable systems.</p>
           </div>
           <div class="strength">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 10 12 5 2 10l10 5 10-5z" />
-                <path d="M6 12v5c3 2 9 2 12 0v-5" />
-              </svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-cap" /></svg></div>
             <h3>Mentorship</h3>
             <p>Mentor engineers through design feedback and code reviews, and build tooling that helps other
               developers move faster.</p>
           </div>
           <div class="strength">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true"><use href="#i-shield" /></svg></div>
             <h3>Ownership</h3>
             <p>Own P0 incident response and production reliability for business-critical platforms, from diagnosis to
               recovery.</p>
@@ -1473,58 +388,37 @@
         </div>
         <div class="skills">
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
-                </svg></span>Languages &amp; backend</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-code" /></svg></span>Languages &amp; backend</h3>
             <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span
                 class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">SQL</span><span
                 class="tag">REST APIs</span></div>
           </div>
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.78A6 6 0 1 0 6 16.9" />
-                  <path d="M6 19h11.5" />
-                </svg></span>Cloud &amp; architecture</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-cloud" /></svg></span>Cloud &amp; architecture</h3>
             <div class="tags"><span class="tag">AWS</span><span class="tag">Kinesis</span><span
                 class="tag">Firehose</span><span class="tag">Lambda</span><span class="tag">Step Functions</span><span
                 class="tag">EventBridge</span><span class="tag">S3</span><span class="tag">Serverless</span><span
                 class="tag">Microservices</span><span class="tag">System design</span></div>
           </div>
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="16" rx="2" />
-                  <path d="M3 9h18" />
-                </svg></span>Frontend</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-window" /></svg></span>Frontend</h3>
             <div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span
                 class="tag">Micro-frontends</span><span class="tag">PWA</span><span class="tag">i18n</span><span
                 class="tag">RTL</span></div>
           </div>
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <ellipse cx="12" cy="5" rx="8" ry="3" />
-                  <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
-                </svg></span>Databases</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-db" /></svg></span>Databases</h3>
             <div class="tags"><span class="tag">DynamoDB</span><span class="tag">MongoDB</span><span
                 class="tag">MySQL</span><span class="tag">PostgreSQL</span></div>
           </div>
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg></span>Testing &amp; delivery</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-check" /></svg></span>Testing &amp; delivery</h3>
             <div class="tags"><span class="tag">Jest</span><span class="tag">Integration testing</span><span
                 class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">AWS CDK</span><span
                 class="tag">CloudFormation</span></div>
           </div>
           <div class="skill">
-            <h3><span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg></span>Operations &amp; practices</h3>
+            <h3><span class="icon"><svg class="ico" aria-hidden="true"><use href="#i-pulse" /></svg></span>Operations &amp; practices</h3>
             <div class="tags"><span class="tag">CloudWatch</span><span class="tag">Datadog</span><span class="tag">New
                 Relic</span><span class="tag">Observability</span><span class="tag">Incident response</span><span
                 class="tag">RBAC</span><span class="tag">Security</span></div>
@@ -1581,28 +475,13 @@
               great teams.</p>
           </div>
           <div class="contact-links">
-            <a href="mailto:shah20@ymail.com"><span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>Email</span><small>shah20@ymail.com</small></a>
-            <a href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener"><span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-                </svg>LinkedIn</span><small>in/shah20 ↗</small></a>
-            <a href="https://github.com/shah20" target="_blank" rel="noopener"><span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3" />
-                </svg>GitHub</span><small>shah20 ↗</small></a>
-            <a href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener"><span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                  <path d="M14 3v6h6" />
-                </svg>Resume</span><small>PDF ↗</small></a>
+            <a href="mailto:shah20@ymail.com"><span><svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg>Email</span><small>shah20@ymail.com</small></a>
+            <a href="https://www.linkedin.com/in/shah20/" target="_blank" rel="noopener"><span><svg class="ico solid"
+                  aria-hidden="true"><use href="#i-linkedin" /></svg>LinkedIn</span><small>in/shah20 ↗</small></a>
+            <a href="https://github.com/shah20" target="_blank" rel="noopener"><span><svg class="ico solid"
+                  aria-hidden="true"><use href="#i-github" /></svg>GitHub</span><small>shah20 ↗</small></a>
+            <a href="assets/Rushabh_Shah_Resume.pdf" target="_blank" rel="noopener"><span><svg class="ico"
+                  aria-hidden="true"><use href="#i-file" /></svg>Resume</span><small>PDF ↗</small></a>
           </div>
         </div>
       </div>
