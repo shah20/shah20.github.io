@@ -1,6 +1,6 @@
 # [shah20.github.io](https://shah20.github.io)
 
-Personal portfolio of **Rushabh Shah**, Senior Software Engineer. It covers selected work, professional experience, skills, AWS certifications (verifiable on Credly), and contact details.
+Personal portfolio of **Rushabh Shah**, Lead Software Engineer. It covers selected work, professional experience, skills, AWS certifications (verifiable on Credly), and contact details.
 
 Live site: **https://shah20.github.io**
 
