@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  Link-preview card (1200x630). Edit the text below, then regenerate from the repo root:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 --screenshot=/tmp/og-card.png "file://$PWD/assets/og-card.html" && sips -s format jpeg -s formatOptions 88 /tmp/og-card.png --out assets/og-image.jpg
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=JetBrains+Mono:wght@500&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 88px;
+    background: #111a33;
+    color: #eef2ff;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    width: 720px; height: 720px;
+    right: -180px; top: -200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,156,255,.32), transparent 65%);
+  }
+  body::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0; height: 8px;
+    background: linear-gradient(90deg, #2346c8, #86a2ff);
+  }
+  .left { position: relative; z-index: 1; max-width: 640px; }
+  .label {
+    display: flex; align-items: center; gap: 14px;
+    font: 500 20px/1 "JetBrains Mono", monospace;
+    letter-spacing: .14em; text-transform: uppercase; color: #9fb4ff;
+  }
+  .label::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+  h1 { font-size: 88px; font-weight: 800; letter-spacing: -.045em; line-height: 1; margin: 26px 0 22px; }
+  .tagline { font-size: 30px; font-weight: 500; color: #b7c2dc; line-height: 1.35; letter-spacing: -.01em; }
+  .tagline b { color: #fff; font-weight: 600; }
+  .stats { display: flex; gap: 12px; margin-top: 36px; }
+  .stat {
+    padding: 10px 18px; border-radius: 999px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+    font-size: 20px; font-weight: 600; color: #dfe6ff;
+  }
+  .url { display: flex; align-items: center; gap: 14px; margin-top: 44px; font-size: 24px; font-weight: 600; color: #fff; }
+  .mark {
+    display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+    background: #86a2ff; color: #0b1020; font-size: 17px; font-weight: 800;
+  }
+  .photo {
+    position: relative; z-index: 1;
+    width: 330px; height: 330px; border-radius: 48px; object-fit: cover;
+    border: 2px solid rgba(255,255,255,.18);
+    box-shadow: 0 0 0 12px rgba(134,162,255,.16), 0 30px 60px rgba(0,0,0,.35);
+  }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="label">Lead Software Engineer</div>
+    <h1>Rushabh Shah</h1>
+    <p class="tagline">Building <b>cloud-native</b>, <b>distributed systems</b><br>and full-stack platforms on AWS.</p>
+    <div class="stats">
+      <span class="stat">10+ years</span>
+      <span class="stat">60M+ events/day</span>
+      <span class="stat">AWS Certified Pro</span>
+    </div>
+    <div class="url"><span class="mark">RS</span>shah20.github.io</div>
+  </div>
+  <img class="photo" src="photo.jpg" alt="">
+</body>
+</html>

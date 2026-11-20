@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
 title: shah20's homepage
 description: shah20's website
+exclude:
+  - assets/og-card.html
