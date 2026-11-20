@@ -1,7 +1,32 @@
 <!DOCTYPE html>
 <!--
   Link-preview card (1200x630). Edit the text below, then regenerate from the repo root:
+
+  Chrome:
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 --screenshot=/tmp/og-card.png "file://$PWD/assets/og-card.html" && sips -s format jpeg -s formatOptions 88 /tmp/og-card.png --out assets/og-image.jpg && rm /tmp/og-card.png
+
+  Edge:
+  "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge" --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 --screenshot=/tmp/og-card.png "file://$PWD/assets/og-card.html" && sips -s format jpeg -s formatOptions 88 /tmp/og-card.png --out assets/og-image.jpg && rm /tmp/og-card.png
+
+  Windows PowerShell (run from the repository root):
+  $browser = "$env:ProgramFiles\Google\Chrome\Application\chrome.exe"
+  if (!(Test-Path $browser)) { $browser = "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe" }
+  if (!(Test-Path $browser)) { $browser = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe" }
+  if (!(Test-Path $browser)) { throw "Chrome or Edge was not found in the usual install locations." }
+  $html = "file:///$($PWD.Path.Replace('\', '/'))/assets/og-card.html"
+  $png = Join-Path $env:TEMP "og-card.png"
+  $output = Join-Path $PWD "assets/og-image-lead.jpg"
+  & $browser --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 "--screenshot=$png" $html
+  if ($LASTEXITCODE -ne 0) { throw "Browser screenshot failed." }
+  Add-Type -AssemblyName System.Drawing
+  $image = [System.Drawing.Image]::FromFile($png)
+  $jpeg = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object MimeType -eq "image/jpeg"
+  $settings = [System.Drawing.Imaging.EncoderParameters]::new(1)
+  $settings.Param[0] = [System.Drawing.Imaging.EncoderParameter]::new([System.Drawing.Imaging.Encoder]::Quality, [long]88)
+  $image.Save($output, $jpeg, $settings)
+  $image.Dispose()
+  $settings.Dispose()
+  Remove-Item $png
 -->
 <html>
 <head>
